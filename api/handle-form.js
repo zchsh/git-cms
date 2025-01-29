@@ -3,7 +3,7 @@ export async function POST(request) {
 	const debugData = {
 		rawBody: await request.text(),
 		parsedBody: request.body,
-		parsedFormData: request.formData,
+		parsedFormData: await request.formData(),
 		method: request.method,
 		url: request.url
 	}
