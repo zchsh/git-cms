@@ -1,10 +1,5 @@
 import { updateGithubFile } from "../lib/update-github-file.js";
 
-// Configure the function for Vercel
-export const config = {
-	runtime: "nodejs",
-};
-
 // Set the file path and file string
 // Later, we expect these to be set dynamically through forms
 const filePath = "content/content-test.json";
