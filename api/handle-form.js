@@ -8,7 +8,7 @@ export async function POST(request) {
 		url: request.url
 	}
 	return new Response(
-		`Submitted form data: ${rawBody}. Parsed body: ${JSON.stringify(
+		`Submitted form data: ${JSON.stringify(
 			debugData,
 			null,
 			2)}.`,
