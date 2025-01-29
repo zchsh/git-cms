@@ -11,6 +11,7 @@
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
+		"multiparty": "^4.2.3",
 		"octokit": "^4.1.0"
 	}
 }
