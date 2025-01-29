@@ -4,6 +4,7 @@ export async function POST(request) {
 		rawBody: await request.text(),
 		parsedBody: request.body,
 		parsedFormData: await request.formData(),
+		parsedJson: await request.json(),
 		method: request.method,
 		url: request.url
 	}
