@@ -1,1 +1,4 @@
-{ "some-key": "another update from Vercel function" }
+{
+  "fullname": "Howdy Doodle",
+  "city": "Toronto"
+}
