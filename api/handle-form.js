@@ -1,10 +1,10 @@
 // Define the handler
 export async function POST(request) {
 	const debugData = {
-		// rawBody: await request.text(),
-		// parsedBody: request.body,
-		parsedFormData: await request.formData(),
+		rawBody: await request.text(),
 		// parsedJson: await request.json(),
+		// parsedFormData: await request.formData(),
+		parsedBody: request.body,
 		method: request.method,
 		url: request.url
 	}
