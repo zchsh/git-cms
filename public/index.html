@@ -4,6 +4,16 @@
 		<title>Hello World</title>
 	</head>
 	<body>
-		This is a test application.
+		This is a test page.
+
+		<form target="_blank" action="/api/handle-form" method="POST">
+			<input type="hidden" name="fullname" value="Sam" />
+			<input type="hidden" name="city" value="Dubai&#32;" />
+			<input
+				onclick="window.location.href = '/after-submit';"
+				type="submit"
+				value="Submit request"
+			/>
+		</form>
 	</body>
 </html>
