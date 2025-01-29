@@ -1,22 +1,29 @@
 import { Octokit } from "octokit";
 
+// Set the file path and file string
+// Later, we expect these to be set dynamically through forms
+const filePath = "content/content-test.json";
+const fileString = `{ "content": "updated from script" }`;
+
+// Set the commit message. Later, this could be set by the user.
+const commitMessage = "chore: test programmatic content update";
+
+// Set the repo owner and name
+const repoOwner = "zchsh";
+const repoName = "git-cms";
+
 // Initialize Octokit.js
 // https://github.com/octokit/core.js#readme
 const octokit = new Octokit({
 	auth: process.env.GITHUB_TOKEN,
 });
 
-// Set the file path and file string
-// Later, we expect these to be set dynamically through forms
-const filePath = "content/content-test.json";
-const fileString = `{ "content": "update" }`;
-
 // Get the SHA of the file at the specified path
 const existingFile = await octokit.request(
 	"GET /repos/{owner}/{repo}/contents/{path}",
 	{
-		owner: "zchsh",
-		repo: "git-cms",
+		owner: repoOwner,
+		repo: repoName,
 		path: filePath,
 		headers: {
 			"X-GitHub-Api-Version": "2022-11-28",
@@ -24,22 +31,22 @@ const existingFile = await octokit.request(
 	}
 );
 
-console.log(existingFile);
-
 // Encode the file string in base64
 const fileStringEncoded = Buffer.from(fileString).toString("base64");
+const existingFileSha = existingFile.data.sha;
 
+// Update the target file
 await octokit.request("PUT /repos/{owner}/{repo}/contents/{path}", {
-	owner: "zchsh",
-	repo: "git-cms",
+	owner: repoOwner,
+	repo: repoName,
 	path: filePath,
-	message: "chore: test programmatic content update",
+	message: commitMessage,
 	committer: {
 		name: "Zach Shilton",
 		email: "4624598+zchsh@users.noreply.github.com",
 	},
 	content: fileStringEncoded,
-	sha: "95b966ae1c166bd92f8ae7d1c313e738c731dfc3",
+	sha: existingFileSha,
 	headers: {
 		"X-GitHub-Api-Version": "2022-11-28",
 	},
