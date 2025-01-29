@@ -11,6 +11,10 @@ export async function GET(request) {
 	const result = await updateGithubFile(filePath, fileString);
 	// Return the update file contents
 	return new Response(
-		`Hello from ${process.env.VERCEL_REGION}. Result: ${result}`
+		`Hello from ${process.env.VERCEL_REGION}. Result: ${JSON.stringify(
+			result,
+			null,
+			2
+		)}`
 	);
 }
