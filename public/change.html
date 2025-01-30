@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Changes submitted</title>
+	</head>
+	<body>
+		<p>You've just submitted some changes. Hopefully they're building successfully. You should wait until the newest build completes before making any new edits to your content.</p>
+    <p>Things that might be nice to do here:</p>
+    <ul>
+      <li>Add password protection to the form submission. Easiest way I can think of is a password field of some kind. Only a specific value allows you to make a change. The API route would read the secret value to match from an environment variable.</li>
+      <li>Make it more clear whether changes were successful or not. Maybe the response from the "/api/handle-form" route can redirect based on success?</li>
+      <li>Show the build status. Should be possible with Vercel, at least. Maybe even, once the build finishes, redirect to the page that was previously edited? Maybe there's a way to show an estimated build time remaining as well?</li>
+      <li>If build status is in any kind of progress or queued state, prevent edits programmatically. For example, disable form inputs, and in API route, check for Vercel build status before trying to make a commit.</li>
+    </ul>
+	</body>
+</html>
