@@ -29,8 +29,40 @@ export async function POST(request) {
 			status: updateResult.status,
 		},
 	};
-	return new Response(
-		`Submitted form data.\n${JSON.stringify(debugData, null, 2)}.`,
-		{ status: 200 }
-	);
+	if (updateResult.status === 200) {
+		/**
+		 * THOUGHT: instead of a simple time-out, could poll Vercel for
+		 * build status. Once there are no in-progress builds, then redirect
+		 * to the page that was being edited.
+		 */
+		const editedPageUrl = "/";
+		return new Response(
+			`<!DOCTYPE html>
+<html>
+	<head>
+		<title>Hello World</title>
+	</head>
+	<body>
+		Submitted form data.
+		<pre><code>${JSON.stringify(debugData, null, 2)}</code></pre>
+  	<script type="text/javascript">
+    	setTimeout(() => {
+      	window.location.replace('${editedPageUrl}');
+    	}, 3000);
+  	</script>
+	</body>
+</html>`,
+			{
+				status: 200,
+				headers: {
+					"Content-Type": "text/html",
+				},
+			}
+		);
+	} else {
+		return new Response(
+			`Issue with update.\n${JSON.stringify(debugData, null, 2)}.`,
+			{ status: updateResult.status }
+		);
+	}
 }

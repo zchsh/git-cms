@@ -22,16 +22,19 @@ vercel dev
 ## Next steps
 
 - [x] Implement some basic edit protection. Maybe a password field in the form would be enough.
-- Figure out how to redirect somehow after "/api/handle-form" submission
-  - Maybe to a page that says "don't edit for now?"
-- Figure out how to poll Vercel for build status (prior art in `eats-plants` repo)
-- Display status from Vercel
-- Switch to a `<textarea>` to edit JSON file contents (for now, later will want auto-generated forms)
-- Use inline script tags to pre-populate values somehow
-  - I feel like I want some kind of templating language here... see build script.
+- [x] Figure out how to redirect somehow after "/api/handle-form" submission
+  - Found a simple way, returning an HTML doc with Javascript that then executes the redirect
+  - Later, could have the redirect happen once the build is complete according to Vercel
+- [ ] Figure out how to poll Vercel for build status (prior art in `eats-plants` repo)
+- [ ] Display status from Vercel
+- [ ] Switch to a `<textarea>` to edit JSON file contents (for now, later will want auto-generated forms)
+- [ ] Use inline script tags to pre-populate values somehow
+  - I feel like I want some kind of templating language here...
+  - But a templating language that can run in the browser, too. So the "edit" pages can show an edit form alongside a live preview of the website.
   - Maybe the right time to switch to NextJS or something. New repo for that, probably.
-- Further thoughts in `public/change.html`
-- Look more into form security, eg <https://austingil.com/how-to-build-html-forms-right-security/>
+  - Or, maybe the right time to look into simple HTML templating languages.
+- [ ] Further thoughts in `public/change.html`
+- [ ] Look more into form security, eg <https://austingil.com/how-to-build-html-forms-right-security/>
 
 ## Reference 
 
