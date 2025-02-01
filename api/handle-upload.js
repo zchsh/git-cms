@@ -1,7 +1,5 @@
-import fs from "fs"
-import path from "path"
+import { createGithubFile } from "../lib/create-github-file.js";
 
-const cwd = process.cwd();
 
 // Define the handler
 export async function POST(request) {
@@ -31,20 +29,20 @@ export async function POST(request) {
 
   // TODO: ensure file name is NOT `index.html`,
   // otherwise we'd overwrite `public/uploads/index.html`.
-  const imageWritePath = "public/uploads/test.jpg"
+  const imageWritePath = "public/uploads/" + imageName
 
-  //
-  // TODO: upload to GitHub instead of writing to file
-  // Maybe make `lib/create-github-file` or something?
-  //
-  fs.writeFileSync(path.join(cwd, imageWritePath ), imageBuffer)
-
+  // Upload file to GitHub
+  // TODO: handle case where file already exists... maybe we should check
+  // on file selection on the front end? And the "Submit" button should
+  // be like "Replace file" instead of "Upload file"? With a confirmation
+  // dialog or something?
+  const result = await createGithubFile(imageWritePath, imageBuffer);
 
   // TODO: return something more useful
   return new Response(
-    JSON.stringify({ success: true, formData: restFormData, imageName, imageWritePath, imageSize }, null, 2),
+    JSON.stringify({ status: result.status, formData: restFormData, imageName, imageWritePath, imageSize }, null, 2),
     {
-      status: 200,
+      status: result.status,
       headers: {
         "Content-Type": "application/json",
       },

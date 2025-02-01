@@ -3,7 +3,7 @@
 	<head>
 		<title>Hello World</title>
 	</head>
-	<body>
+	<body> 
 		This is a test page.
 
 		<pre><code>{
@@ -20,9 +20,22 @@
 			<!-- TODO: type:password, but toggle back to type:text? -->
 			<input name="password" />
 			<input name="filepath" value="content/content-test.json" />
+			<input id="imagepath" name="imagepath" placeholder="/some-image.png" />
 			<input name="fullname" value="Howdy Doodle" />
 			<input name="city" value="Toronto" />
 			<input type="submit" value="Submit request" />
 		</form>
+
+		<img id="imagepreview" />
+
+		<script type="text/javascript">
+			const imageInput = document.getElementById("imagepath")
+			const imageElem = document.getElementById("imagepreview")
+			imageInput.addEventListener('input', e => {
+				const inputValue = e.target.value
+				console.log({inputValue})
+				imageElem.setAttribute("src", e.target.value)
+			});
+		</script>
 	</body>
 </html>
