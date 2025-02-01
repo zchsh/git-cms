@@ -28,6 +28,9 @@ export async function POST(request) {
   const imageBuffer = Buffer.from(await exampleFile.arrayBuffer())
   const imageSize = exampleFile.size
   const imageName = exampleFile.name
+
+  // TODO: ensure file name is NOT `index.html`,
+  // otherwise we'd overwrite `public/uploads/index.html`.
   const imageWritePath = "public/uploads/test.jpg"
 
   //
