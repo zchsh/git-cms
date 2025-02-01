@@ -6,15 +6,15 @@
 	<body>
 		Manage uploaded files, somehow.
 		<form
-			name="test-form"
-			action="/api/handle-form"
+			name="test-upload"
+			action="/api/handle-upload"
 			method="POST"
-			enctype="application/x-www-form-urlencoded"
+      enctype="multipart/form-data"
 		>
       <label for="password">Password</label>
 			<input id="password" name="password" />
       <label for="file">File</label>
-      <input id="file" type="file" />
+      <input id="file" name="file" type="file" />
 			<input type="submit" value="Submit request" />
 		</form>
 	</body>

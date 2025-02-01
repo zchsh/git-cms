@@ -34,8 +34,8 @@ function buildHomePage(cwd, dirSrc, dirOut) {
  * UPLOADS PAGE
  */
 function buildUploadsPage(cwd, dirSrc, dirOut) {
-  const inputFilePath = path.join(dirSrc, "uploads.html")
-  const outputFilePath = path.join(dirOut, "uploads.html")
+  const inputFilePath = path.join(dirSrc, "uploads/index.html")
+  const outputFilePath = path.join(dirOut, "uploads/index.html")
   // Read in the input file
   const inputFileString = fs.readFileSync(inputFilePath, "utf-8")
   // Transform into output
