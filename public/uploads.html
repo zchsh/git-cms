@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Uploads</title>
+	</head>
+	<body>
+		Manage uploaded files, somehow.
+		<form
+			name="test-form"
+			action="/api/handle-form"
+			method="POST"
+			enctype="application/x-www-form-urlencoded"
+		>
+      <label for="password">Password</label>
+			<input id="password" name="password" />
+      <label for="file">File</label>
+      <input id="file" type="file" />
+			<input type="submit" value="Submit request" />
+		</form>
+	</body>
+</html>

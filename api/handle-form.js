@@ -1,9 +1,5 @@
 import { updateGithubFile } from "../lib/update-github-file.js";
 
-// Set the file path
-// Later, we expect this to be set dynamically, for different pages
-const filePath = "content/content-test.json";
-
 // Define the handler
 export async function POST(request) {
 	const formData = await request.formData();
@@ -13,7 +9,7 @@ export async function POST(request) {
 	});
 
 	// Validate that the password is correct
-	const { password, ...restFormData } = parsedFormData;
+	const { password, filepath, ...restFormData } = parsedFormData;
 	if (password !== process.env.EDIT_PASSWORD) {
 		return new Response(`Unauthorized.`, { status: 401 });
 	}
@@ -21,7 +17,7 @@ export async function POST(request) {
 	const fileString = JSON.stringify(restFormData, null, 2);
 
 	// Update the file
-	const updateResult = await updateGithubFile(filePath, fileString);
+	const updateResult = await updateGithubFile(filepath, fileString);
 
 	const debugData = {
 		formData: restFormData,
