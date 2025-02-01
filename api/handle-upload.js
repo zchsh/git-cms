@@ -19,9 +19,9 @@ export async function POST(request) {
 
 	// Validate that the password is correct
 	const { password,  ...restFormData } = parsedFormData;
-	// if (password !== process.env.EDIT_PASSWORD) {
-	// 	return new Response(`Unauthorized.`, { status: 401 });
-	// }
+	if (password !== process.env.EDIT_PASSWORD) {
+		return new Response(`Unauthorized.`, { status: 401 });
+	}
 
   // Do something with the image file
   const exampleFile = formData.get('file')
