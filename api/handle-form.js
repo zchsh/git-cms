@@ -43,13 +43,10 @@ export async function POST(request) {
 		<title>Hello World</title>
 	</head>
 	<body>
-		Submitted form data.
+		<p>Submitted form data.</p>
 		<pre><code>${JSON.stringify(debugData, null, 2)}</code></pre>
-  	<script type="text/javascript">
-    	setTimeout(() => {
-      	window.location.replace('${editedPageUrl}');
-    	}, 3000);
-  	</script>
+		<p>Go back to the page you were just editing:</p>
+		<p><a href="${editedPageUrl}">Go to "${editedPageUrl}"</a></p>
 	</body>
 </html>`,
 			{
