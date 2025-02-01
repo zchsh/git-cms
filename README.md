@@ -11,6 +11,10 @@ Env template below. If you've already set up and deployed the project, it may be
 GITHUB_TOKEN=github-pat-abc-123
 # Set an arbitrary password to validate edits via form submission
 EDIT_PASSWORD=foobar
+# Use a token from Vercel, see https://vercel.com/docs/rest-api#authentication
+VERCEL_API_TOKEN=
+# Grab this from the Vercel deployment
+VERCEL_PROJECT_ID=
 ```
  
 ## Local Development
