@@ -39,6 +39,8 @@ function buildUploadsPage(cwd, dirSrc, dirOut) {
   // Read in the input file
   const inputFileString = fs.readFileSync(inputFilePath, "utf-8")
   // Transform into output
+  // TODO: show all the files in `public/uploads/**` in a nice grid,
+  // with "Copy URL" buttons on each image.
   const outputFileString = inputFileString
   // Write out the output file
   fs.writeFileSync(outputFilePath, outputFileString)
