@@ -25,13 +25,12 @@ export async function POST(request) {
 
 	const debugData = {
 		formData: restFormData,
-		// parsedBody: request.body,
-		// method: request.method,
-		// url: request.url,
-		updateResult,
+		updateResult: {
+			status: updateResult.status,
+		},
 	};
 	return new Response(
-		`Submitted form data: ${JSON.stringify(debugData, null, 2)}.`,
+		`Submitted form data.\n${JSON.stringify(debugData, null, 2)}.`,
 		{ status: 200 }
 	);
 }

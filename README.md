@@ -21,8 +21,7 @@ vercel dev
 
 ## Next steps
 
-- Implement some basic edit protection. Maybe a password field in the form would be enough.
-  - WIP, pushed up, need to validate this actually works
+- [x] Implement some basic edit protection. Maybe a password field in the form would be enough.
 - Figure out how to redirect somehow after "/api/handle-form" submission
   - Maybe to a page that says "don't edit for now?"
 - Figure out how to poll Vercel for build status (prior art in `eats-plants` repo)
