@@ -39,6 +39,8 @@ vercel dev
   - Maybe it's "no framework"... but it feels like that's not a great answer
   - Feels like making the "framework" decision something I can change later would be ideal
   - Maybe start with handlebars: https://handlebarsjs.com/installation
+- [ ] Clean up the project a bit
+  - At this point I have a few key pieces mostly-prototyped, so feels like a good time for cleanup
 - [ ] Build out image uploading
   - Maybe uploading assets does _not_ trigger a continuous deployment... so that you can upload a bunch of assets at once, without triggering a bunch of builds... and then _manually_ trigger a re-build so that your uploaded assets show up.
   - This could evolve a little into a kind of "digital asset manager" via a GitHub repo.
